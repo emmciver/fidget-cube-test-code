@@ -1,4 +1,5 @@
 let Hand = 0
+let strip: neopixel.Strip = null
 input.onButtonPressed(Button.A, function () {
     for (let index = 0; index < 3; index++) {
         basic.showLeds(`
@@ -40,7 +41,7 @@ input.onButtonPressed(Button.A, function () {
             . . . . .
             . . . . .
             `)
-        basic.pause(500)
+        basic.pause(200)
         basic.showLeds(`
             # # # # #
             . . . . .
@@ -80,14 +81,18 @@ input.onButtonPressed(Button.A, function () {
             . . . . .
             # # # # #
             `)
-        basic.pause(500)
+        basic.pause(200)
     }
+    basic.clearScreen()
 })
 input.onGesture(Gesture.ScreenDown, function () {
     for (let index = 0; index < 3; index++) {
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.UntilDone)
+        music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.UntilDone)
         basic.pause(1000)
     }
+})
+input.onButtonPressed(Button.B, function () {
+    basic.clearScreen()
 })
 input.onGesture(Gesture.Shake, function () {
     Hand = randint(1, 3)
@@ -116,4 +121,9 @@ input.onGesture(Gesture.Shake, function () {
             # # . . #
             `)
     }
+})
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
+    strip.setBrightness(255)
+    strip.showRainbow(1, 360)
 })
