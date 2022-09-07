@@ -1,101 +1,96 @@
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     strip.showRainbow(1, 360)
+    for (let index = 0; index < 4; index++) {
+        music.playMelody("E B C5 A B G A F ", 325)
+    }
 })
 input.onButtonPressed(Button.A, function () {
-    for (let index = 0; index < 2; index++) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(200)
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            `)
-        basic.pause(200)
-        basic.clearScreen()
-    }
-})
-input.onGesture(Gesture.TiltLeft, function () {
-    for (let index = 0; index < 2; index++) {
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
-        basic.pause(1000)
-        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1, 1615, 0, 255, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
-        basic.pause(1000)
-    }
+    basic.clearScreen()
 })
 input.onButtonPressed(Button.B, function () {
-    basic.clearScreen()
+    for (let index = 0; index < 2; index++) {
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            `)
+        basic.pause(200)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(800)
+        basic.clearScreen()
+    }
 })
 input.onGesture(Gesture.Shake, function () {
     Hand = randint(1, 3)
@@ -123,6 +118,14 @@ input.onGesture(Gesture.Shake, function () {
             # # . # .
             # # . . #
             `)
+    }
+})
+input.onGesture(Gesture.TiltRight, function () {
+    for (let index = 0; index < 2; index++) {
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
+        basic.pause(1000)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1, 1615, 0, 255, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
+        basic.pause(1000)
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
