@@ -1,93 +1,96 @@
-let Hand = 0
-let strip: neopixel.Strip = null
-input.onButtonPressed(Button.A, function () {
-    for (let index = 0; index < 3; index++) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(200)
-        basic.showLeds(`
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-        basic.pause(1000)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            # # # # #
-            `)
-        basic.pause(200)
-    }
-    basic.clearScreen()
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    strip.showRainbow(1, 360)
 })
-input.onGesture(Gesture.ScreenDown, function () {
-    for (let index = 0; index < 3; index++) {
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.UntilDone)
+input.onButtonPressed(Button.A, function () {
+    for (let index = 0; index < 2; index++) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(200)
+        basic.showLeds(`
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+        basic.pause(1000)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            # # # # #
+            `)
+        basic.pause(200)
+        basic.clearScreen()
+    }
+})
+input.onGesture(Gesture.TiltLeft, function () {
+    for (let index = 0; index < 2; index++) {
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 0, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
+        basic.pause(1000)
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1, 1615, 0, 255, 1000, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
         basic.pause(1000)
     }
 })
@@ -122,8 +125,16 @@ input.onGesture(Gesture.Shake, function () {
             `)
     }
 })
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
-    strip.setBrightness(255)
-    strip.showRainbow(1, 360)
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+})
+let Hand = 0
+let strip: neopixel.Strip = null
+strip = neopixel.create(DigitalPin.P0, 15, NeoPixelMode.RGB)
+strip.setBrightness(100)
+strip.showColor(neopixel.colors(NeoPixelColors.Black))
+basic.forever(function () {
+    strip.rotate(1)
+    strip.show()
+    basic.pause(200)
 })
